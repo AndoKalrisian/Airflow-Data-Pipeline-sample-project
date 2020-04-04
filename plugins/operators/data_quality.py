@@ -35,8 +35,7 @@ class DataQualityOperator(BaseOperator):
             num_records = records[0][0]
             
             if test["operator"](num_records, test["test_value"]):
-                print(
-                    f"Data Quality Checked PASSED: The query: {test['query']} returned the result of {test['test_value']}, {num_records} {test['operator']} {test['test_value']}")
+                self.log.info(f"Data Quality Checked PASSED: The query: {test['query']} returned the result of {test['test_value']}, {num_records} {test['operator']} {test['test_value']}")
             else:
                 raise ValueError(f"Data quality check FAILED: {num_records} is not {test['operator']} {test['test_value']}")
                     

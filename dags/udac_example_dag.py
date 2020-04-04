@@ -21,8 +21,8 @@ default_args = {
     'start_date': datetime(2019, 1, 12),
     'depends_on_past': False,
     'retries': 3,
-    #'retry_delay': timedelta(minutes=5),
-    'retry_delay': timedelta(seconds=10),
+    'retry_delay': timedelta(minutes=5),
+    #'retry_delay': timedelta(seconds=10),
     'catchup_by_default': False,
     'email_on_retry': False
 }
@@ -44,7 +44,6 @@ stage_events_to_redshift = StageToRedshiftOperator(
     redshift_conn_id="redshift",
     aws_credentials_id="aws_credentials",
     s3_bucket="udacity-dend",
-    #s3_key="log_data/{execution_date.year}/{execution_date.month}/",
     s3_key="log_data",
     json_file="s3://udacity-dend/log_json_path.json",
     region="us-west-2"

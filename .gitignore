@@ -1,3 +1,4 @@
 create_connections_do_not_commit.py
 playground/
 redshift/
+**/__pycache__
